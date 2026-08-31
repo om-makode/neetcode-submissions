@@ -1,0 +1,27 @@
+class Solution {
+    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+        // for i in 0..<nums.count{
+        //     for j in 0..<nums.count{
+        //         if i != j{
+        //             if nums[i] + nums[j] == target{
+        //                 return [i, j]
+        //             }
+        //         }
+        //     }
+        // }
+        // return []
+
+
+        var dict : [Int: Int] = [:]
+        for (i, value) in nums.enumerated(){
+            let firstValue = target - value
+
+            if let firstIndex = dict[firstValue]{
+                return [firstIndex, i]
+            }
+            dict[value] = i
+        }
+        return []
+    }
+    
+}
